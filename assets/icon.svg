@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="title">
+  <title>Hashrate Lens</title>
+  <rect width="128" height="128" rx="28" fill="#0d1518"/>
+  <path d="M18 83.5 35.5 66l14 12.5L72 50l14 12.5L110 38" fill="none" stroke="#65e6d0" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+  <path d="M18 101h92" fill="none" stroke="#ffb35c" stroke-linecap="round" stroke-width="5"/>
+  <circle cx="35.5" cy="66" r="6" fill="#f1f7f4"/>
+  <circle cx="72" cy="50" r="6" fill="#f1f7f4"/>
+  <circle cx="110" cy="38" r="6" fill="#f1f7f4"/>
+</svg>
