@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hashrate Lens normaliza os hashrates do RollerCoin para uma unidade escolhida no Firefox.">
+    <meta name="theme-color" content="#091014">
+    <meta property="og:title" content="Hashrate Lens — uma escala só">
+    <meta property="og:description" content="Uma extensão Firefox para ler hashrates do RollerCoin numa unidade escolhida.">
+    <link rel="canonical" href="https://awtoprime25.github.io/rollercoin-hashrate-lens-site/">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hashrate Lens — uma escala só</title>
+  </head>
+  <body>
+    <div class="page-shell" id="top">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Hashrate Lens, início">
+          <span class="brand-mark" aria-hidden="true">H/</span>
+          <span>HASHRATE<br><b>LENS</b></span>
+        </a>
+        <nav class="site-nav" aria-label="Navegação principal">
+          <a href="#demo">Demo</a>
+          <a href="#why">Como funciona</a>
+          <a href="#privacy">Privacidade</a>
+        </nav>
+        <a class="header-link" href="https://github.com/awtoprime25" target="_blank" rel="noreferrer">Perfil ↗</a>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> ROLLERCOIN / FIREFOX EXTENSION</p>
+            <h1 id="hero-title">Uma escala só para uma potência difícil de ler.</h1>
+            <p class="hero-lede">O Hashrate Lens transforma GH/s, TH/s, PH/s e EH/s para a unidade que preferes — diretamente na página, sempre visível.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#demo">Experimentar o conversor <span aria-hidden="true">↓</span></a>
+              <a class="button button-quiet" href="#install">Ver instalação</a>
+            </div>
+            <div class="hero-proof" aria-label="Características principais">
+              <span><i aria-hidden="true">01</i> SEM SERVIDOR</span>
+              <span><i aria-hidden="true">02</i> SEM TRACKING</span>
+              <span><i aria-hidden="true">03</i> AO VIVO</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Exemplo de conversão de Ph por segundo para Th por segundo">
+            <div class="visual-label visual-label-top">DISPLAY / NORMALIZED</div>
+            <div class="unit-rail" aria-hidden="true">
+              <span>EH/s</span>
+              <span class="rail-active">PH/s</span>
+              <span>TH/s</span>
+              <span>GH/s</span>
+              <b></b>
+            </div>
+            <div class="signal-card">
+              <div class="signal-card-head">
+                <span class="mono">LIVE DISPLAY</span>
+                <span class="live-status"><i></i> LOCAL ONLY</span>
+              </div>
+              <div class="signal-row signal-source">
+                <strong>14.236</strong>
+                <span>PH/s</span>
+              </div>
+              <div class="signal-arrow" aria-hidden="true"><span></span><b>↓</b><span></span></div>
+              <div class="signal-row signal-target">
+                <strong>14 236</strong>
+                <span>TH/s</span>
+              </div>
+              <div class="signal-card-foot">
+                <span>DECIMAL SCALE</span>
+                <b>10³ / STEP</b>
+              </div>
+            </div>
+            <div class="visual-label visual-label-bottom">THE NUMBER STAYS THE SAME</div>
+          </div>
+        </section>
+
+        <section class="section demo-section" id="demo" aria-labelledby="demo-title">
+          <div class="section-heading">
+            <p class="eyebrow">TRY THE SCALE</p>
+            <h2 id="demo-title">Vê a conversão antes de abrir o jogo.</h2>
+            <p>Esta demonstração corre apenas nesta página. Não envia nada para lado nenhum.</p>
+          </div>
+          <div class="demo-layout">
+            <form class="demo-panel" id="demo-form">
+              <div class="panel-topline"><span class="mono">INPUT / HASHRATE</span><span class="panel-index">01</span></div>
+              <div class="field-block">
+                <label for="amount">Valor</label>
+                <input id="amount" type="number" value="14.236" min="0" step="any" inputmode="decimal">
+              </div>
+              <div class="field-row">
+                <div class="field-block">
+                  <label for="source-unit">De</label>
+                  <select id="source-unit">
+                    <option value="GH">GH/s</option>
+                    <option value="TH">TH/s</option>
+                    <option value="PH" selected>PH/s</option>
+                    <option value="EH">EH/s</option>
+                  </select>
+                </div>
+                <div class="field-block">
+                  <label for="target-unit">Para</label>
+                  <select id="target-unit">
+                    <option value="GH">GH/s</option>
+                    <option value="TH" selected>TH/s</option>
+                    <option value="PH">PH/s</option>
+                    <option value="EH">EH/s</option>
+                  </select>
+                </div>
+                <div class="field-block field-decimals">
+                  <label for="decimals">Casas</label>
+                  <select id="decimals">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+            <div class="result-panel" aria-live="polite">
+              <div class="panel-topline"><span class="mono">OUTPUT / READABLE</span><span class="panel-index">02</span></div>
+              <output class="result-value" id="demo-output" for="amount source-unit target-unit decimals">14236 TH/s</output>
+              <p class="result-equation" id="demo-equation">14.236 PH/s <span>→</span> 14236 TH/s</p>
+              <div class="result-bar" aria-hidden="true"><span></span></div>
+              <p class="result-note">Zeros desnecessários desaparecem. A escala fica.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section why-section" id="why" aria-labelledby="why-title">
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">A SMALL TOOL WITH A CLEAR JOB</p>
+            <h2 id="why-title">Menos ruído. Mais leitura.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card feature-card-accent">
+              <span class="feature-number">A</span>
+              <h3>Sempre visível</h3>
+              <p>A unidade escolhida aparece no lugar do valor original. Sem tooltip, sem contas mentais.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">B</span>
+              <h3>Acompanha o jogo</h3>
+              <p>Valores que entram depois, incluindo componentes React, também passam pela mesma escala.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number">C</span>
+              <h3>Local por desenho</h3>
+              <p>Sem API, sem servidor, sem perfil de mineração. Só uma transformação visual no browser.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section privacy-section" id="privacy" aria-labelledby="privacy-title">
+          <div class="privacy-stamp" aria-hidden="true"><span>NO</span><b>DATA</b><small>COLLECTED</small></div>
+          <div class="privacy-copy">
+            <p class="eyebrow">PRIVACY / BY DEFAULT</p>
+            <h2 id="privacy-title">O teu hashrate fica no teu browser.</h2>
+            <p>O Hashrate Lens guarda apenas a unidade, precisão e estado que escolheste no armazenamento local do Firefox. Não recolhe atividade, saldo, conta ou valores de mineração.</p>
+          </div>
+        </section>
+
+        <section class="install-band" id="install" aria-labelledby="install-title">
+          <div>
+            <p class="eyebrow">FIREFOX ADD-ONS / NEXT</p>
+            <h2 id="install-title">Uma escala. Em qualquer sessão.</h2>
+            <p>A publicação no Firefox Add-ons está a ser preparada. O download oficial ficará disponível aqui depois da aprovação da Mozilla.</p>
+          </div>
+          <a class="button button-primary" href="https://addons.mozilla.org/" target="_blank" rel="noreferrer">Abrir Firefox Add-ons <span aria-hidden="true">↗</span></a>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>HASHRATE LENS / 2026</span>
+        <span>RollerCoin é um site de terceiros.</span>
+        <a href="https://github.com/awtoprime25" target="_blank" rel="noreferrer">Feito por Walter ↗</a>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
