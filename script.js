@@ -32,7 +32,6 @@
   function mountLogo() {
     const mark = document.querySelector('.brand-mark');
     if (!mark) return;
-
     const logo = document.createElement('img');
     logo.alt = '';
     logo.src = 'assets/icon.svg';
@@ -48,6 +47,26 @@
     mark.append(logo);
   }
 
+  function mountLanguageFlags() {
+    const flags = { pt: 'assets/flag-pt.svg', en: 'assets/flag-uk.svg' };
+    const labels = { pt: 'Português', en: 'English' };
+    languageButtons.forEach((button) => {
+      const language = button.dataset.language;
+      const flag = document.createElement('img');
+      flag.alt = '';
+      flag.src = flags[language];
+      flag.width = 24;
+      flag.height = 16;
+      flag.style.borderRadius = '2px';
+      flag.style.display = 'inline-block';
+      flag.style.marginRight = '5px';
+      flag.style.verticalAlign = '-3px';
+      button.textContent = '';
+      button.append(flag, document.createTextNode(language.toUpperCase()));
+      button.setAttribute('aria-label', labels[language]);
+    });
+  }
+
   function formatValue(value, decimals) {
     return new Intl.NumberFormat('en-US', { useGrouping: false, maximumFractionDigits: decimals }).format(value);
   }
@@ -57,13 +76,11 @@
     const source = sourceSelect.value;
     const target = targetSelect.value;
     const decimals = Math.min(6, Math.max(0, Number(decimalsSelect.value)));
-
     if (!Number.isFinite(amount) || amount < 0 || !factors[source] || !factors[target]) {
       output.textContent = '—';
       equation.textContent = 'Enter a valid value';
       return;
     }
-
     const converted = amount * factors[source] / factors[target];
     const formatted = formatValue(converted, decimals);
     const sourceFormatted = formatValue(amount, decimals);
@@ -93,6 +110,7 @@
   }
 
   mountLogo();
+  mountLanguageFlags();
   languageButtons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
   form.addEventListener('input', updateDemo);
   form.addEventListener('change', updateDemo);
