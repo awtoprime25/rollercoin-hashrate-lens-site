@@ -9,7 +9,15 @@
     <meta property="og:description" content="Uma extensão Firefox para ler hashrates do RollerCoin numa unidade escolhida.">
     <link rel="canonical" href="https://awtoprime25.github.io/rollercoin-hashrate-lens-site/">
     <link rel="stylesheet" href="styles.css">
-    <title>Hashrate Lens — uma escala só</title>
+    <style>
+      .language-switcher { align-items: center; border-left: 1px solid var(--line); display: flex; gap: 7px; margin-left: 2px; padding-left: 22px; }
+      .language-switcher button { background: transparent; border: 0; border-bottom: 1px solid transparent; color: var(--faint); cursor: pointer; font: 700 10px "Cascadia Code", "SFMono-Regular", Consolas, monospace; letter-spacing: .1em; padding: 4px 1px; }
+      .language-switcher button:hover, .language-switcher button.is-active { border-bottom-color: var(--cyan); color: var(--cyan); }
+      .language-switcher button:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+      .language-divider { color: var(--faint); font: 10px "Cascadia Code", "SFMono-Regular", Consolas, monospace; }
+      @media (max-width: 620px) { .language-switcher { border-left: 0; margin-left: auto; padding-left: 0; } }
+    </style>
+    <title data-i18n="pageTitle">Hashrate Lens — uma escala só</title>
   </head>
   <body>
     <div class="page-shell" id="top">
@@ -19,32 +27,37 @@
           <span>HASHRATE<br><b>LENS</b></span>
         </a>
         <nav class="site-nav" aria-label="Navegação principal">
-          <a href="#demo">Demo</a>
-          <a href="#why">Como funciona</a>
-          <a href="#privacy">Privacidade</a>
+          <a href="#demo" data-i18n="navDemo">Demo</a>
+          <a href="#why" data-i18n="navWhy">Como funciona</a>
+          <a href="#privacy" data-i18n="navPrivacy">Privacidade</a>
         </nav>
-        <a class="header-link" href="https://github.com/awtoprime25" target="_blank" rel="noreferrer">Perfil ↗</a>
+        <a class="header-link" href="https://github.com/awtoprime25" target="_blank" rel="noreferrer" data-i18n="profileLink">Perfil ↗</a>
+        <div class="language-switcher" aria-label="Language / Idioma">
+          <button type="button" class="is-active" data-language="pt" aria-pressed="true">PT</button>
+          <span class="language-divider" aria-hidden="true">/</span>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
       </header>
 
       <main>
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> ROLLERCOIN / FIREFOX EXTENSION</p>
-            <h1 id="hero-title">Uma escala só para uma potência difícil de ler.</h1>
-            <p class="hero-lede">O Hashrate Lens transforma GH/s, TH/s, PH/s e EH/s para a unidade que preferes — diretamente na página, sempre visível.</p>
+            <p class="eyebrow" data-i18n="heroEyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> ROLLERCOIN / EXTENSÃO FIREFOX</p>
+            <h1 id="hero-title" data-i18n="heroTitle">Uma escala só para uma potência difícil de ler.</h1>
+            <p class="hero-lede" data-i18n="heroLede">O Hashrate Lens transforma GH/s, TH/s, PH/s e EH/s para a unidade que preferes — diretamente na página, sempre visível.</p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#demo">Experimentar o conversor <span aria-hidden="true">↓</span></a>
-              <a class="button button-quiet" href="#install">Ver instalação</a>
+              <a class="button button-primary" href="#demo"><span data-i18n="heroPrimary">Experimentar o conversor</span> <span aria-hidden="true">↓</span></a>
+              <a class="button button-quiet" href="#install" data-i18n="heroSecondary">Ver instalação</a>
             </div>
             <div class="hero-proof" aria-label="Características principais">
-              <span><i aria-hidden="true">01</i> SEM SERVIDOR</span>
-              <span><i aria-hidden="true">02</i> SEM TRACKING</span>
-              <span><i aria-hidden="true">03</i> AO VIVO</span>
+              <span data-i18n="proofOne"><i aria-hidden="true">01</i> SEM SERVIDOR</span>
+              <span data-i18n="proofTwo"><i aria-hidden="true">02</i> SEM TRACKING</span>
+              <span data-i18n="proofThree"><i aria-hidden="true">03</i> AO VIVO</span>
             </div>
           </div>
 
           <div class="hero-visual" aria-label="Exemplo de conversão de Ph por segundo para Th por segundo">
-            <div class="visual-label visual-label-top">DISPLAY / NORMALIZED</div>
+            <div class="visual-label visual-label-top" data-i18n="visualTop">DISPLAY / NORMALIZADO</div>
             <div class="unit-rail" aria-hidden="true">
               <span>EH/s</span>
               <span class="rail-active">PH/s</span>
@@ -54,8 +67,8 @@
             </div>
             <div class="signal-card">
               <div class="signal-card-head">
-                <span class="mono">LIVE DISPLAY</span>
-                <span class="live-status"><i></i> LOCAL ONLY</span>
+                <span class="mono" data-i18n="liveDisplay">LIVE DISPLAY</span>
+                <span class="live-status"><i></i> <span data-i18n="localOnly">LOCAL ONLY</span></span>
               </div>
               <div class="signal-row signal-source">
                 <strong>14.236</strong>
@@ -67,30 +80,30 @@
                 <span>TH/s</span>
               </div>
               <div class="signal-card-foot">
-                <span>DECIMAL SCALE</span>
+                <span data-i18n="decimalScale">DECIMAL SCALE</span>
                 <b>10³ / STEP</b>
               </div>
             </div>
-            <div class="visual-label visual-label-bottom">THE NUMBER STAYS THE SAME</div>
+            <div class="visual-label visual-label-bottom" data-i18n="visualBottom">THE NUMBER STAYS THE SAME</div>
           </div>
         </section>
 
         <section class="section demo-section" id="demo" aria-labelledby="demo-title">
           <div class="section-heading">
-            <p class="eyebrow">TRY THE SCALE</p>
-            <h2 id="demo-title">Vê a conversão antes de abrir o jogo.</h2>
-            <p>Esta demonstração corre apenas nesta página. Não envia nada para lado nenhum.</p>
+            <p class="eyebrow" data-i18n="demoEyebrow">EXPERIMENTA A ESCALA</p>
+            <h2 id="demo-title" data-i18n="demoTitle">Vê a conversão antes de abrir o jogo.</h2>
+            <p data-i18n="demoDescription">Esta demonstração corre apenas nesta página. Não envia nada para lado nenhum.</p>
           </div>
           <div class="demo-layout">
             <form class="demo-panel" id="demo-form">
-              <div class="panel-topline"><span class="mono">INPUT / HASHRATE</span><span class="panel-index">01</span></div>
+              <div class="panel-topline"><span class="mono" data-i18n="inputLabel">INPUT / HASHRATE</span><span class="panel-index">01</span></div>
               <div class="field-block">
-                <label for="amount">Valor</label>
+                <label for="amount" data-i18n="valueLabel">Valor</label>
                 <input id="amount" type="number" value="14.236" min="0" step="any" inputmode="decimal">
               </div>
               <div class="field-row">
                 <div class="field-block">
-                  <label for="source-unit">De</label>
+                  <label for="source-unit" data-i18n="fromLabel">De</label>
                   <select id="source-unit">
                     <option value="GH">GH/s</option>
                     <option value="TH">TH/s</option>
@@ -99,7 +112,7 @@
                   </select>
                 </div>
                 <div class="field-block">
-                  <label for="target-unit">Para</label>
+                  <label for="target-unit" data-i18n="toLabel">Para</label>
                   <select id="target-unit">
                     <option value="GH">GH/s</option>
                     <option value="TH" selected>TH/s</option>
@@ -108,7 +121,7 @@
                   </select>
                 </div>
                 <div class="field-block field-decimals">
-                  <label for="decimals">Casas</label>
+                  <label for="decimals" data-i18n="decimalsLabel">Casas</label>
                   <select id="decimals">
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -122,35 +135,35 @@
               </div>
             </form>
             <div class="result-panel" aria-live="polite">
-              <div class="panel-topline"><span class="mono">OUTPUT / READABLE</span><span class="panel-index">02</span></div>
+              <div class="panel-topline"><span class="mono" data-i18n="outputLabel">OUTPUT / LEGÍVEL</span><span class="panel-index">02</span></div>
               <output class="result-value" id="demo-output" for="amount source-unit target-unit decimals">14236 TH/s</output>
               <p class="result-equation" id="demo-equation">14.236 PH/s <span>→</span> 14236 TH/s</p>
               <div class="result-bar" aria-hidden="true"><span></span></div>
-              <p class="result-note">Zeros desnecessários desaparecem. A escala fica.</p>
+              <p class="result-note" data-i18n="resultNote">Zeros desnecessários desaparecem. A escala fica.</p>
             </div>
           </div>
         </section>
 
         <section class="section why-section" id="why" aria-labelledby="why-title">
           <div class="section-heading compact-heading">
-            <p class="eyebrow">A SMALL TOOL WITH A CLEAR JOB</p>
-            <h2 id="why-title">Menos ruído. Mais leitura.</h2>
+            <p class="eyebrow" data-i18n="whyEyebrow">UMA FERRAMENTA PEQUENA COM UM TRABALHO CLARO</p>
+            <h2 id="why-title" data-i18n="whyTitle">Menos ruído. Mais leitura.</h2>
           </div>
           <div class="feature-grid">
             <article class="feature-card feature-card-accent">
               <span class="feature-number">A</span>
-              <h3>Sempre visível</h3>
-              <p>A unidade escolhida aparece no lugar do valor original. Sem tooltip, sem contas mentais.</p>
+              <h3 data-i18n="featureOneTitle">Sempre visível</h3>
+              <p data-i18n="featureOneText">A unidade escolhida aparece no lugar do valor original. Sem tooltip, sem contas mentais.</p>
             </article>
             <article class="feature-card">
               <span class="feature-number">B</span>
-              <h3>Acompanha o jogo</h3>
-              <p>Valores que entram depois, incluindo componentes React, também passam pela mesma escala.</p>
+              <h3 data-i18n="featureTwoTitle">Acompanha o jogo</h3>
+              <p data-i18n="featureTwoText">Valores que entram depois, incluindo componentes React, também passam pela mesma escala.</p>
             </article>
             <article class="feature-card">
               <span class="feature-number">C</span>
-              <h3>Local por desenho</h3>
-              <p>Sem API, sem servidor, sem perfil de mineração. Só uma transformação visual no browser.</p>
+              <h3 data-i18n="featureThreeTitle">Local por desenho</h3>
+              <p data-i18n="featureThreeText">Sem API, sem servidor, sem perfil de mineração. Só uma transformação visual no browser.</p>
             </article>
           </div>
         </section>
@@ -158,26 +171,27 @@
         <section class="section privacy-section" id="privacy" aria-labelledby="privacy-title">
           <div class="privacy-stamp" aria-hidden="true"><span>NO</span><b>DATA</b><small>COLLECTED</small></div>
           <div class="privacy-copy">
-            <p class="eyebrow">PRIVACY / BY DEFAULT</p>
-            <h2 id="privacy-title">O teu hashrate fica no teu browser.</h2>
-            <p>O Hashrate Lens guarda apenas a unidade, precisão e estado que escolheste no armazenamento local do Firefox. Não recolhe atividade, saldo, conta ou valores de mineração.</p>
+            <p class="eyebrow" data-i18n="privacyEyebrow">PRIVACIDADE / POR PADRÃO</p>
+            <h2 id="privacy-title" data-i18n="privacyTitle">O teu hashrate fica no teu browser.</h2>
+            <p data-i18n="privacyText">O Hashrate Lens guarda apenas a unidade, precisão e estado que escolheste no armazenamento local do Firefox. Não recolhe atividade, saldo, conta ou valores de mineração.</p>
           </div>
         </section>
 
         <section class="install-band" id="install" aria-labelledby="install-title">
           <div>
-            <p class="eyebrow">FIREFOX ADD-ONS / NEXT</p>
-            <h2 id="install-title">Uma escala. Em qualquer sessão.</h2>
-            <p>A publicação no Firefox Add-ons está a ser preparada. O download oficial ficará disponível aqui depois da aprovação da Mozilla.</p>
+            <p class="eyebrow" data-i18n="installEyebrow">FIREFOX ADD-ONS / PRÓXIMO PASSO</p>
+            <h2 id="install-title" data-i18n="installTitle">Uma escala. Em qualquer sessão.</h2>
+            <p data-i18n="installText">A publicação no Firefox Add-ons está a ser preparada. O download oficial ficará disponível aqui depois da aprovação da Mozilla.</p>
           </div>
-          <a class="button button-primary" href="https://addons.mozilla.org/" target="_blank" rel="noreferrer">Abrir Firefox Add-ons <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="https://addons.mozilla.org/" target="_blank" rel="noreferrer"><span data-i18n="installButton">Abrir Firefox Add-ons</span> <span aria-hidden="true">↗</span></a>
         </section>
       </main>
 
       <footer class="site-footer">
-        <span>HASHRATE LENS / 2026</span>
-        <span>RollerCoin é um site de terceiros.</span>
-        <a href="https://github.com/awtoprime25" target="_blank" rel="noreferrer">Feito por Walter ↗</a>
+        <span data-i18n="footerName">HASHRATE LENS / 2026</span>
+        <span data-i18n="footerDisclaimer">RollerCoin é um site de terceiros.</span>
+        <a href="https://github.com/awtoprime25/rollercoin-hashrate-lens-site/issues" target="_blank" rel="noreferrer" data-i18n="footerIssues">Reportar problema ↗</a>
+        <a href="https://github.com/awtoprime25" target="_blank" rel="noreferrer" data-i18n="footerAuthor">Feito por Walter ↗</a>
       </footer>
     </div>
     <script src="script.js"></script>
